@@ -674,10 +674,10 @@ async def save_template(client, message):
 @Client.on_message(filters.private & filters.command("restart") & filters.user(ADMINS))
 async def restart(client, message):
     msg = await message.reply_text(
-        text="<i>Trying to restarting.....</i>"
+        text="<i>Restarting.....</i>"
     )
     await asyncio.sleep(5)
-    await msg.edit("<i>Server restarted successfully ✅</i>")
+    await msg.edit("<i>๏[-ิ_•ิ]๏ bot restarted !</i>")
     os.execl(sys.executable, sys.executable, *sys.argv)
               #===============Restart Function over====================#
 

@@ -164,7 +164,7 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
 # this is a status of users only #
-@Client.on_message(filters.command('stats') & filters.user(ADMINS) & filters.incoming)
+@Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
     rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
@@ -182,7 +182,7 @@ async def get_ststs(bot, message):
         )
     # this is a status of admin only #
 #@Client.on_message(filters.command('stats') & filters.incoming)
-@Client.on_message(filters.command('stas') & filters.user(ADMINS) & filters.incoming)
+@Client.on_message(filters.command('stats') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
     buttons = [[
             InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')

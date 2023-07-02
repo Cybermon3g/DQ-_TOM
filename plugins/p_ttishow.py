@@ -182,7 +182,7 @@ async def get_ststs(bot, message):
         )
     # this is a status of admin only #
 #@Client.on_message(filters.command('stats') & filters.incoming)
-@Client.on_message(filters.command('stats') & filters.user(ADMINS))
+@Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
     buttons = [[
             InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')

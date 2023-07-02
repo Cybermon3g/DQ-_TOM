@@ -107,7 +107,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('🚸 ᴅᴇʟᴇᴛᴇ', callback_data='close_data')
+            InlineKeyboardButton('🚸 ᴅᴇʟᴇᴛᴇ', close_data=query)
         ]
         ]
     return InlineKeyboardMarkup(buttons)

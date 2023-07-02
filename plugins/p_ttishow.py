@@ -177,6 +177,7 @@ async def get_ststs(bot, message):
     await rju.edit_text(
             text=script.USER_STATS_TXT.format(files, total_users, totl_chats, size, free),
             disable_web_page_preview=True,
+            #reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
     # this is a status of admin only #

@@ -163,7 +163,7 @@ async def re_enable_chat(bot, message):
     temp.BANNED_CHATS.remove(int(chat_))
     await message.reply("Chat Successfully re-enabled")
 
-
+# this is a status of users only #
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
     rju = await message.reply('Fetching stats..')
@@ -174,15 +174,18 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
-
-    
+    await rju.edit_text(
+            text=script.USER_STATS_TXT.format(files, total_users, totl_chats, size, free),
+            disable_web_page_preview=True,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    # this is a status of admin only #
 #@Client.on_message(filters.command('stats') & filters.incoming)
 @Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
     buttons = [[
-            InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data'),
-            InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     rju = await message.reply('Fetching stats..')

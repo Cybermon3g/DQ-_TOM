@@ -50,7 +50,7 @@ async def get_ststs(bot, message):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-async def query_data == "rfrsh":
+async def query_data="rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about'),

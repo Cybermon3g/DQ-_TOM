@@ -189,7 +189,7 @@ async def get_ststs(bot, message):
     kdbotz = await message.reply('Fetching status..')
     now = datetime.now()
     #delta = now - bot.uptime
-    uptime = get_readable_time(delta.seconds)
+    uptime = get_readable_time(seconds)
     ram = psutil.virtual_memory().percent
     cpu = psutil.cpu_percent()
     total_users = await db.total_users_count()

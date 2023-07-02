@@ -188,7 +188,6 @@ async def get_ststs(bot, message):
     reply_markup = InlineKeyboardMarkup(buttons)
     kdbotz = await message.reply('Fetching status..')
     now = datetime.now()
-    delta = now - bot.uptime
     uptime = get_readable_time(delta.seconds)
     ram = psutil.virtual_memory().percent
     cpu = psutil.cpu_percent()

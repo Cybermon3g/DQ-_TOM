@@ -197,7 +197,7 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     await rju.edit_text(
-            text=script.STATS_TXT.format(uptime, ram, cpu, files, total_users, totl_chats, size, free),
+            text=script.ADMIN_STATS_TXT.format(uptime, ram, cpu, files, total_users, totl_chats, size, free),
             disable_web_page_preview=True,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML

@@ -31,8 +31,8 @@ from pyrogram.errors import ChatAdminRequired
        # )
 
 
-
-elif query.data == "stats":
+@Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
+async def get_ststs(bot, message):
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about'),
             InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
@@ -50,7 +50,7 @@ elif query.data == "stats":
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "rfrsh":
+async def query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about'),

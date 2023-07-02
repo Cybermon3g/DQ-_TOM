@@ -181,14 +181,12 @@ async def get_ststs(bot, message):
 #@Client.on_message(filters.command('stats') & filters.incoming)
 @Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
-    buttons = [[
+   buttons = [[
             InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
-    kdbotz = await message.reply('Fetching status..')
-    now = datetime.now()
-    #delta = now - bot.uptime
-    uptime = get_readable_time(delta.seconds)
+    rju = await message.reply('Fetching stats..')
+    uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
     ram = psutil.virtual_memory().percent
     cpu = psutil.cpu_percent()
     total_users = await db.total_users_count()
@@ -198,8 +196,9 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    await kdbotz.edit_text(
-            text=script. ADMIN_STATS_TXT.format(uptime, cpu, ram, files, total_users, totl_chats, size, free),
+    await rju.edit_text(
+            text=script.STATS_TXT.format(uptime, ram, cpu, files, total_users, totl_chats, size, free),
+            disable_web_page_preview=True,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )

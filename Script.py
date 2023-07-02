@@ -128,6 +128,23 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 ♻️ ᴛᴏᴛᴀʟ ᴄʜᴀᴛs: <code>{}</code>
 🗃️ ᴜsᴇᴅ sᴛᴏʀᴀɢᴇ: <code>{}</code> 𝙼𝚒𝙱
 🆓 ғʀᴇᴇ sᴛᴏʀᴀɢᴇ: <code>{}</code> 𝙼𝚒𝙱</b>"""
+
+    ADMIN_STATS_TXT = """
+<b>⏳ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ:</b> <code>{}</code>
+ 
+<b>☣️ ᴄᴘᴜ:</b> <code>{}%</code>
+
+<b>☢️ ʀᴀᴍ:</b> <code>{}%</code>
+
+<b>📊 ғɪʟᴇs sᴀᴠᴇᴅ:</b> <code>{}</code>
+
+<b>👤 ᴜsᴇʀs:</b> <code>{}</code>
+
+<b>👥 ɢʀᴏᴜᴘs:</b> <code>{}</code>
+
+<b>🉐 ᴏᴄᴄᴜᴘɪᴇᴅ:</b> <code>{}</code>
+
+<b>🆓 ғʀᴇᴇ:</b> <code>{}</code> """
     
     LOG_TEXT_G = """#NewGroup
 Gʀᴏᴜᴘ = {}(<code>{}</code>)

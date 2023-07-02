@@ -1,13 +1,20 @@
+import asyncio
+import math
+import os
+import psutil
 from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK, NEWGRP
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings
+from utils import get_size, temp, get_settings, get_readable_time
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
+from datetime import datetime
+import time
+
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -169,6 +176,33 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
+
+    
+#@Client.on_message(filters.command('stats') & filters.incoming)
+@Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
+async def get_ststs(bot, message):
+    buttons = [[
+            InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')
+    ]]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    kdbotz = await message.reply('Fetching status..')
+    now = datetime.now()
+    delta = now - bot.uptime
+    uptime = get_readable_time(delta.seconds)
+    ram = psutil.virtual_memory().percent
+    cpu = psutil.cpu_percent()
+    total_users = await db.total_users_count()
+    totl_chats = await db.total_chat_count()
+    files = await Media.count_documents()
+    size = await db.get_db_size()
+    free = 536870912 - size
+    size = get_size(size)
+    free = get_size(free)
+    await kdbotz.edit_text(
+            text=script. ADMIN_STATS_TXT.format(uptime, cpu, ram, files, total_users, totl_chats, size, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
 
 
 @Client.on_message(filters.command('invite') & filters.user(ADMINS))

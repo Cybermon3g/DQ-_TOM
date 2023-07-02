@@ -5,7 +5,7 @@ from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_US
 class Database:
     
     def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(mongodb+srv://sridhark123:SRIDHARMONIKA@cluster0.rbiqfla.mongodb.net/?retryWrites=true&w=majority)
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(mongodb+srv://sridhark123:sridharmonika@cluster0.rbiqfla.mongodb.net/?retryWrites=true&w=majority)
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups

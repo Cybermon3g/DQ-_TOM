@@ -180,7 +180,7 @@ async def get_ststs(bot, message):
 #@Client.on_message(filters.command('stats') & filters.incoming)
 @Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
 async def get_ststs(bot, message):
-   buttons = [[
+    buttons = [[
             InlineKeyboardButton('✘ ᴄʟᴏsᴇ ✘', callback_data='close_data')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)

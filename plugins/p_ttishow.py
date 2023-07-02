@@ -12,9 +12,8 @@ from utils import get_size, temp, get_settings, get_readable_time
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
-from datetime import datetime
+from datetime import datetime, timedelta, date, time
 from utils import get_size, temp, get_settings, get_readable_time
-import time
 
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
@@ -189,7 +188,7 @@ async def get_ststs(bot, message):
     kdbotz = await message.reply('Fetching status..')
     now = datetime.now()
     #delta = now - bot.uptime
-    uptime = get_readable_time(seconds)
+    uptime = get_readable_time(delta.seconds)
     ram = psutil.virtual_memory().percent
     cpu = psutil.cpu_percent()
     total_users = await db.total_users_count()

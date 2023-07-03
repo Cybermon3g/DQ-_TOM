@@ -63,7 +63,7 @@ async def give_filter(client, message):
         else:
             return await message.reply_text(
                 text=f"Hᴇʏ {message.from_user.mention},\n\n {str(total_results)} ʀᴇꜱᴜʟᴛꜱ ᴀʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ʏᴏᴜʀ ǫᴜᴇʀʏ {search}.Bᴜᴛ ɪ ᴄᴀɴ'ᴛ ɢɪᴠᴇ ғɪʟᴛᴇʀ ʜᴇʀᴇ ʙᴇᴄᴀᴜꜱᴇ ᴛʜɪꜱ ɪꜱ ᴀ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ Rᴇǫᴜᴇꜱᴛ ᴏɴ ᴏᴜʀ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ☟",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ​ ", url=f"REQST_CHANNEL")]]))
+            )
             
 
 @Client.on_message(filters.private & filters.text & filters.incoming)

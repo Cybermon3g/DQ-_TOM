@@ -11,7 +11,7 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import LANGUAGES, ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, MAX_B_TN, IMDB, \
+from info import LANGUAGES, ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, REQST_CHANNEL, MAX_B_TN, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, FILE_CHANNEL_LINK, FILE_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
@@ -63,7 +63,7 @@ async def give_filter(client, message):
         else:
             return await message.reply_text(
                 text=f"Hᴇʏ {message.from_user.mention},\n\n {str(total_results)} ʀᴇꜱᴜʟᴛꜱ ᴀʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ʏᴏᴜʀ ǫᴜᴇʀʏ {search}.Bᴜᴛ ɪ ᴄᴀɴ'ᴛ ɢɪᴠᴇ ғɪʟᴛᴇʀ ʜᴇʀᴇ ʙᴇᴄᴀᴜꜱᴇ ᴛʜɪꜱ ɪꜱ ᴀ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ Rᴇǫᴜᴇꜱᴛ ᴏɴ ᴏᴜʀ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ☟",
-                parse_mode=enums.ParseMode.HTML
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ​ ", url=f"REQST_CHANNEL")]]))
             )
 
 @Client.on_message(filters.private & filters.text & filters.incoming)

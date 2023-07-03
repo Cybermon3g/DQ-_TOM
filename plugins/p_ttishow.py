@@ -164,22 +164,6 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
 # this is a status of users only #
-@Client.on_message(filters.command('status') & filters.user(ADMINS) & filters.incoming)
-async def get_ststs(bot, message):
-    rju = await message.reply('Fetching stats..')
-    total_users = await db.total_users_count()
-    totl_chats = await db.total_chat_count()
-    files = await Media.count_documents()
-    size = await db.get_db_size()
-    free = 536870912 - size
-    size = get_size(size)
-    free = get_size(free)
-    await rju.edit_text(
-            text=script.USER_STATS_TXT.format(files, total_users, totl_chats, size, free),
-            disable_web_page_preview=True,
-            #reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
     # this is a status of admin only #
 #@Client.on_message(filters.command('stats') & filters.incoming)
 @Client.on_message(filters.command('stats') & filters.user(ADMINS) & filters.incoming)

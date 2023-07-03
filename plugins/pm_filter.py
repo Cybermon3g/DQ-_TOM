@@ -62,7 +62,7 @@ async def give_filter(client, message):
             return
         else:
             return await message.reply_text(
-                text=f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...\n\nFᴏʀ Mᴏᴠɪᴇs, Jᴏɪɴ </b>",
+                text=f"Hᴇʏ {message.from_user.mention},\n\n {str(total_results)} ʀᴇꜱᴜʟᴛꜱ ᴀʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ʏᴏᴜʀ ǫᴜᴇʀʏ {search}.Bᴜᴛ ɪ ᴄᴀɴ'ᴛ ɢɪᴠᴇ ғɪʟᴛᴇʀ ʜᴇʀᴇ ʙᴇᴄᴀᴜꜱᴇ ᴛʜɪꜱ ɪꜱ ᴀ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ Rᴇǫᴜᴇꜱᴛ ᴏɴ ᴏᴜʀ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ☟",
                 parse_mode=enums.ParseMode.HTML
             )
 

@@ -17,6 +17,13 @@ from pyrogram.errors import ChatAdminRequired
 """-----------------------------------------https://t.me/GetTGLink/4179 -------------------------------------"""
 BOT_START_TIME = time.time()
 
+STATU_TXT = """<b>📑 ғɪʟᴇs sᴀᴠᴇᴅ: {}
+👤 ᴛᴏᴛᴀʟ ᴜsᴇʀs: {}
+♻️ ᴛᴏᴛᴀʟ ᴄʜᴀᴛs: {}
+🗃️ ᴜsᴇᴅ sᴛᴏʀᴀɢᴇ: {}
+🆓 ғʀᴇᴇ sᴛᴏʀᴀɢᴇ: {}
+</b>"""
+
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
     r_j_check = [u.id for u in message.new_chat_members]
@@ -189,6 +196,19 @@ async def get_ststs(bot, message):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    
+@Client.on_message(filters.command('stats') & filters.incoming)
+async def get_us_ststs(bot, message):
+    rju = await message.reply('Fetching stats..')
+    total_users = await db.total_users_count()
+    totl_chats = await db.total_chat_count()
+    files = await Media.count_documents()
+    size = await db.get_db_size()
+    free = 536870912 - size
+    size = get_size(size)
+    free = get_size(free)
+    await rju.edit(STATUS_TXT.format(files, total_users, totl_chats, size, free))
+
 
 @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):

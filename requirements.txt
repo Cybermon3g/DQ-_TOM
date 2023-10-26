@@ -27,12 +27,10 @@ pyshorteners
 countryinfo
 datetime
 pytz
-dnspython
+dnspython==2.3.0
 python-math
 psutil==5.9.4
 speedtest-cli
-
-
 python-dotenv
 openai==0.25.0
 python-telegram-bot==12.8
